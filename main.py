@@ -12,7 +12,7 @@ from opencc import OpenCC
 from config import Config
 import wget
 
-RR7PP = Client(
+iiiziiii = Client(
    "Youtube Bot",
    api_id=Config.APP_ID,
    api_hash=Config.API_HASH,
@@ -27,10 +27,10 @@ YTDL_REGEX = (r"^((?:https?:)?\/\/)"
 s2tw = OpenCC('s2tw.json').convert
 
 
-@RR7PP.on_message(filters.command("start"))
+@iiiziiii.on_message(filters.command("start"))
 async def start(client, message):
    if message.chat.type == 'private':
-       await RR7PP.send_message(
+       await iiiziiii.send_message(
                chat_id=message.chat.id,
                text="""<b>أهلا بك عزيزي،
 
@@ -153,7 +153,7 @@ async def ytdl_with_button(c: Client, message: Message):
     )
 
 
-@RR7PP.on_callback_query(filters.regex("^ytdl_audio$"))
+@iiiziiii.on_callback_query(filters.regex("^ytdl_audio$"))
 async def callback_query_ytdl_audio(_, callback_query):
     try:
         url = callback_query.message.reply_to_message.text
