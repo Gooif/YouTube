@@ -1,4 +1,4 @@
-# By ~ @RR7PP
+# By ~ @iiiziiii
 # For and gives starts 🤍
 
 import os
@@ -35,28 +35,28 @@ async def start(client, message):
                text="""<b>أهلا بك عزيزي،
 
 من خلال هذا البوت يمكنك تحميل الاغاني والفيديوهات من اليوتيوب اضغط على الخيارات بالأسفل لمزيد من المعلومات 
-▷ BY : @EEJEEE
+▷ BY : @iiiziiii
 </b>""",   
                             reply_markup=InlineKeyboardMarkup(
                                 [
                                 [
                                         InlineKeyboardButton('قائمة المساعدة', callback_data="help"),
-                                        InlineKeyboardButton('▷ DEV', url='https://T.ME/RR7PP')
+                                        InlineKeyboardButton('▷ DEV', url='https://T.ME/diiivi')
                                     ],]
                             ),        
             disable_web_page_preview=True,        
             parse_mode="html")
 
-@RR7PP.on_message(filters.command("help"))
+@iiiziiii.on_message(filters.command("help"))
 async def help(client, message):
     if message.chat.type == 'private':   
-        await RR7PP.send_message(
+        await iiiziiii.send_message(
                chat_id=message.chat.id,
                text="""<b><u>بوت اليوتيوب</u></b>
 
 فقط ارسل رابط الفيديو او الاغنية لتحميلها وارسالها لك
 
-<b>▷ DEV :</b> @EEJEEE""",
+<b>▷ DEV :</b> @iiiziiii""",
         reply_markup=InlineKeyboardMarkup(
                                 [[
                                         InlineKeyboardButton(
@@ -68,26 +68,26 @@ async def help(client, message):
             disable_web_page_preview=True,        
             parse_mode="html")
 
-@RR7PP.on_message(filters.command("about"))
+@iiiziiii.on_message(filters.command("about"))
 async def about(client, message):
     if message.chat.type == 'private':   
-        await RR7PP.send_message(
+        await iiiziiii.send_message(
                chat_id=message.chat.id,
                text="""<b><u>YOUTUBE BOT INFO</u></b>
 
-<b>▷ ‍🔧 المطور:</b> <a href="https://t.me/JJJJVJ">اضغط هنا</a>
+<b> المطور:</b> <a href="https://t.me/iiiziiii">اضغط هنا</a>
 
-<b>▷ 📚 المكتبة:</b> <a href="https://github.com/pyrogram/pyrogram">Pyrogram</a>
+<b>▷  المكتبة:</b> <a href="https://github.com/pyrogram/pyrogram">Pyrogram</a>
 
-<b>▷ 📢 قناة السورس:</b> @EEJEEE
+<b>▷  قناة السورس:</b> @EEl00
 
-<b>▷ 🌀 مطور السورس:</b> <a href="https://t.me/EE6EE">اضغط هنا</a>""",
+<b>▷  مطور السورس:</b> <a href="https://t.me/Diiivi">اضغط هنا</a>""",
      reply_markup=InlineKeyboardMarkup(
                                 [[
                                         InlineKeyboardButton(
                                             "🔙 رجـوع", callback_data="help"),
                                         InlineKeyboardButton(
-                                            "المطـور ⛓️️", url="https://t.me/JJJJVJ"),
+                                            "المطـور ⛓️️", url="https://t.me/iiiziiii"),
                                   ],]
                             ),        
             disable_web_page_preview=True,        
@@ -96,7 +96,7 @@ async def about(client, message):
 
 # https://docs.pyrogram.org/start/examples/bot_keyboards
 # Reply with inline keyboard
-@EEJEEE.on_message(filters.private
+@iiiziiii.on_message(filters.private
                    & filters.text
                    & ~filters.edited
                    & filters.regex(YTDL_REGEX))
@@ -107,7 +107,7 @@ async def ytdl_with_button(c: Client, message: Message):
             if user.status == "kicked":
                 await c.send_message(
                     chat_id=message.chat.id,
-                    text="▾∮ تم حظرك من استخدام البوت تواصل مع مطوري [اضغط هنا](https://t.me/JJJJVJ).",
+                    text="▾ تم حظرك من استخدام البوت تواصل مع مطوري [اضغط هنا](https://t.me/iiiziiii).",
                     parse_mode="markdown",
                     disable_web_page_preview=True
                 )
@@ -115,11 +115,11 @@ async def ytdl_with_button(c: Client, message: Message):
         except UserNotParticipant:
             await c.send_message(
                 chat_id=message.chat.id,
-                text="**▾∮ يجب الاشتراك بقناة السورس اولا **",
+                text="**▾ يجب الاشتراك بقناة السورس اولا **",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("قناة السورس", url=f"https://t.me/EEJEEE")
+                            InlineKeyboardButton("قناة السورس", url=f"https://t.me/EEl00")
                         ]
                     ]
                 ),
@@ -129,7 +129,7 @@ async def ytdl_with_button(c: Client, message: Message):
         except Exception:
             await c.send_message(
                 chat_id=message.chat.id,
-                text="هنالك شي خطا تواصل مع مطوري [اضغط هنة](https://t.me/JJJJVJ).",
+                text="هنالك شي خطا تواصل مع مطوري [اضغط هنة](https://t.me/Diiivi).",
                 parse_mode="markdown",
                 disable_web_page_preview=True)
             return
@@ -231,7 +231,7 @@ else:
        os.remove(audio_file)
        os.remove(thumbnail_file)
 
-@RR7PP.on_callback_query(filters.regex("^ytdl_video$"))
+@iiiziiii.on_callback_query(filters.regex("^ytdl_video$"))
 async def callback_query_ytdl_video(_, callback_query):
     try:
         # url = callback_query.message.text
@@ -332,7 +332,7 @@ def get_resolution(info_dict):
     return (width, height)
 
 
-@RR7PP.on_callback_query()
+@iiiziiii.on_callback_query()
 async def button(bot, update):
       cb_data = update.data
       if "help" in cb_data:
@@ -348,8 +348,8 @@ async def button(bot, update):
 print(
     """
 اشتغل البوت بنجاح ✅
-اشترك @EEJEEE
+اشترك @iiiziiii
 """
 )
 
-RR7PP.run()
+iiiziiii.run()
